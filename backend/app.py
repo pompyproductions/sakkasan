@@ -14,6 +14,9 @@ app = FastAPI()
 @app.get("/")
 async def serve_index():
     return FileResponse(front_dir / "index.html")
+@app.get("/typo-checker")
+async def serve_index():
+    return FileResponse(front_dir / "typo-checker.html")
 
 # 2. validation of the client's request
 class AnalysisRequest(BaseModel):
@@ -22,11 +25,11 @@ class AnalysisRequest(BaseModel):
     # tone: str
     # context: str
 
-@app.post("/api/full_analysis")
-async def full_analysis(request: AnalysisRequest):
+@app.post("/api/typo-checker")
+async def call_typo_checker(request: AnalysisRequest):
     """
-    Receives sentence, context, intended meaning, and tone.
-    Responds with a full, structured AI analysis.
+    Accepts a sentence, and returns the correction 
+    (or an empty string if the sentence is correct). 
     """
     print(f"Received sentence for analysis: {request.sentence}")
 

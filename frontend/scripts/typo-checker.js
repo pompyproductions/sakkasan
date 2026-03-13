@@ -1,7 +1,11 @@
+import "./resize.js";
 import domalt from "./domalt/domalt.js";
 
-async function getFullAnalysis() {
-    const res = await fetch("/api/full_analysis", {
+console.log("hey");
+
+async function getTypoCheck() {
+    console.log("hey");
+    const res = await fetch("/api/typo-checker", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -23,4 +27,4 @@ async function getFullAnalysis() {
     }));
 }
 
-document.getElementById("analyze").addEventListener("click", getFullAnalysis);
+document.getElementById("check").addEventListener("click", getTypoCheck);

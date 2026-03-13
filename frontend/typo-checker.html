@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAKKASAN</title>
+    <title>SAKKASAN | Typo checker</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/common.css">
+    <script type="module" src="scripts/common.js" defer></script>
+    <script type="module" src="scripts/typo-checker.js" defer></script>
     <link 
         rel="stylesheet" 
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,check,close"
@@ -14,14 +16,18 @@
 </head>
 <body class="en-sans">
     <header>
+        <h1>Typo checker</h1>
+        <div class="input-button-couple">
+            <input type="text" id="user-sentence" placeholder="Your sentence in Japanese here.">
+            <button id="check">Check</button>
+        </div>
     </header>
     <main>
-        <nav><ul>
-            <li><a href="/typo-checker">Typo checker</a></li>
-            <li><a href="/meaning-checker">Meaning checker</a></li>
-        </ul></nav>
+        <div id="result">
+        </div>
     </main>
     <footer>
+        <a href="/">← Back to index.</a>
     </footer>
 </body>
 </html>
