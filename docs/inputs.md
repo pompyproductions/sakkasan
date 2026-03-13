@@ -19,3 +19,9 @@ Context: Koba is a restaurant, and Architalie had a networking event.
 Sentence: 今日は丸に怠惰な一日でした。
 Intended meaning: Today was, truly, a day of laziness.
 Tone: self-deprecating journal entry
+
+
+## TYPO CHECKER
+
+Sentence: 今日は熱いから海で泳きたい
+Tone: Formal

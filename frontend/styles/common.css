@@ -42,6 +42,7 @@ main, header, aside {
     font-size: .8em;
     font-weight: 300;
 }
+
 button {
     background-color: white;
     border: 2px solid black;
@@ -55,4 +56,17 @@ button:hover {
 button:active {
     transform: none;
     box-shadow: 0 -1px;
+}
+
+input {
+    color: inherit;
+    border: none;
+    border-bottom: 2px solid currentColor;
+    align-self: stretch;
+    min-width: 16rem;
+}
+
+.input-button-couple {
+    display: flex;
+    gap: 1em;
 }
