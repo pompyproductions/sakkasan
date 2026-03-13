@@ -1,0 +1,191 @@
+{
+  "type": "object",
+  "properties": {
+    "grammar_accuracy": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "string",
+          "enum": ["PASS", "SO-SO", "FAIL"],
+          "description": "Score for grammatical correctness (no BULLSEYE for accuracy)"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Brief explanation of the evaluation"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "suggestion": {
+                "type": "string",
+                "description": "Alternative correction"
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": ["HIGH", "MEDIUM", "LOW"],
+                "description": "How well this alternative matches the provided context/tone/meaning"
+              }
+            },
+            "required": ["suggestion", "fidelity"]
+          },
+          "description": "List of alternatives with fidelity ratings (only if score is SO-SO or FAIL)",
+          "nullable": true
+        }
+      },
+      "required": ["score", "summary"]
+    },
+    "vocabulary_accuracy": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "string",
+          "enum": ["PASS", "SO-SO", "FAIL"],
+          "description": "Score for vocabulary correctness (no BULLSEYE for accuracy)"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Brief explanation of the evaluation"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "suggestion": {
+                "type": "string",
+                "description": "Alternative word choice"
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": ["HIGH", "MEDIUM", "LOW"],
+                "description": "How well this alternative matches the provided context/tone/meaning"
+              }
+            },
+            "required": ["suggestion", "fidelity"]
+          },
+          "description": "List of alternatives with fidelity ratings (only if score is SO-SO or FAIL)",
+          "nullable": true
+        }
+      },
+      "required": ["score", "summary"]
+    },
+    "grammar_naturalness": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "string",
+          "enum": ["BULLSEYE", "PASS", "SO-SO", "FAIL"],
+          "description": "Score for how naturally the grammar flows"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Brief explanation of the evaluation"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "suggestion": {
+                "type": "string",
+                "description": "More natural phrasing"
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": ["HIGH", "MEDIUM", "LOW"],
+                "description": "How well this alternative matches the provided context/tone/meaning"
+              }
+            },
+            "required": ["suggestion", "fidelity"]
+          },
+          "description": "List of alternatives with fidelity ratings (only if score is not BULLSEYE)",
+          "nullable": true
+        }
+      },
+      "required": ["score", "summary"]
+    },
+    "vocabulary_naturalness": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "string",
+          "enum": ["BULLSEYE", "PASS", "SO-SO", "FAIL"],
+          "description": "Score for word choice naturalness"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Brief explanation of the evaluation"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "suggestion": {
+                "type": "string",
+                "description": "More natural word choice"
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": ["HIGH", "MEDIUM", "LOW"],
+                "description": "How well this alternative matches the provided context/tone/meaning"
+              }
+            },
+            "required": ["suggestion", "fidelity"]
+          },
+          "description": "List of alternatives with fidelity ratings (only if score is not BULLSEYE)",
+          "nullable": true
+        }
+      },
+      "required": ["score", "summary"]
+    },
+    "tone": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "string",
+          "enum": ["BULLSEYE", "PASS", "SO-SO", "FAIL"],
+          "description": "Score for tone appropriateness"
+        },
+        "detected_tone": {
+          "type": "string",
+          "description": "Description of who this language is appropriate for and what feeling/standpoint it implies"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Brief explanation of the evaluation"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "suggestion": {
+                "type": "string",
+                "description": "Alternative with appropriate tone"
+              },
+              "fidelity": {
+                "type": "string",
+                "enum": ["HIGH", "MEDIUM", "LOW"],
+                "description": "How well this alternative matches the provided context/tone/meaning"
+              }
+            },
+            "required": ["suggestion", "fidelity"]
+          },
+          "description": "List of alternatives with fidelity ratings (only if score is not BULLSEYE)",
+          "nullable": true
+        }
+      },
+      "required": ["score", "detected_tone", "summary"]
+    }
+  },
+  "required": [
+    "grammar_accuracy",
+    "vocabulary_accuracy",
+    "grammar_naturalness",
+    "vocabulary_naturalness",
+    "tone"
+  ]
+}
