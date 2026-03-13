@@ -1,34 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Zen+Kaku+Gothic+New&family=Zen+Old+Mincho&display=swap');
+/* layout */
 
-.en-serif {
-  font-family: "Cormorant Garamond", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+body {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    height: 100vh; /* fallback */
+    height: var(--doc-height);
 }
 
-.en-sans {
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
+main, header, aside, footer {
+    padding: 1.2rem 2rem;
 }
 
-.jp-mincho {
-  font-family: "Zen Old Mincho", serif;
-  font-weight: 400;
-  font-style: normal;
+main.result-displayed {
+    border-top: 1px solid #ddd;
 }
 
-.jp-gothic {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-main, header, aside {
-    padding: 1rem 2rem;
-}
 .hidden {
     display: none;
 }

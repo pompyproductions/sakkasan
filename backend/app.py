@@ -15,8 +15,6 @@ app = FastAPI()
 async def serve_index():
     return FileResponse(front_dir / "index.html")
 
-app.mount("/", StaticFiles(directory=front_dir), name="static")
-
 # 2. validation of the client's request
 class AnalysisRequest(BaseModel):
     sentence: str
@@ -41,3 +39,5 @@ async def full_analysis(request: AnalysisRequest):
 @app.get("/api/health")
 async def health_check():
     return {"status": "ok"}
+
+app.mount("/", StaticFiles(directory=front_dir), name="static")

@@ -1,3 +1,4 @@
+import "./resize.js";
 import domalt from "./domalt/domalt.js";
 
 async function getFullAnalysis() {
@@ -12,7 +13,7 @@ async function getFullAnalysis() {
 
     const container = document.getElementById("result");
     clearElem(container);
-    document.querySelector(".vsep").classList.remove("hidden");
+    document.querySelector("main").classList.add("result-displayed");
     container.append(domalt.newElem({
         tag: "h2",
         content: data.analysis
