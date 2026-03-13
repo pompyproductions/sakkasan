@@ -1,7 +1,5 @@
-import "./resize.js";
+import { clearElem } from "./common.js";
 import domalt from "./domalt/domalt.js";
-
-console.log("hey");
 
 async function getTypoCheck() {
     console.log("hey");

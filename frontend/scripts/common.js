@@ -15,4 +15,4 @@ function newIconInline(name) {
     })
 }
 
-console.log("hey");
+export { clearElem };
