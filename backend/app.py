@@ -7,7 +7,6 @@ from pydantic import BaseModel
 back_dir = Path(__file__).parent
 front_dir = back_dir / ".." / "frontend"
 app = FastAPI()
-app.mount("/", StaticFiles(directory=front_dir), name="static")
 
 # ---
 # GET requests
@@ -16,14 +15,14 @@ app.mount("/", StaticFiles(directory=front_dir), name="static")
 async def serve_index():
     return FileResponse(front_dir / "index.html")
 
-
+app.mount("/", StaticFiles(directory=front_dir), name="static")
 
 # 2. validation of the client's request
 class AnalysisRequest(BaseModel):
     sentence: str
-    intended_meaning: str
-    tone: str
-    context: str
+    # intended_meaning: str
+    # tone: str
+    # context: str
 
 @app.post("/api/full_analysis")
 async def full_analysis(request: AnalysisRequest):

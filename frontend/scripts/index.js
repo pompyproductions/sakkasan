@@ -4,9 +4,9 @@ async function getFullAnalysis() {
     const res = await fetch("/api/full_analysis", {
         method: "POST",
         headers: {
-            "ContentType": "application/json",
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: document.getElementById("user-sentence").value }) 
+        body: JSON.stringify({ sentence: document.getElementById("user-sentence").value }) 
     });
     const data = await res.json();
 
