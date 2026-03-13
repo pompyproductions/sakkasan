@@ -1,7 +1,13 @@
 import domalt from "./domalt/domalt.js";
 
-async function getGreeting() {
-    const res = await fetch("/api/greet");
+async function getFullAnalysis() {
+    const res = await fetch("/api/full_analysis", {
+        method: "POST",
+        headers: {
+            "ContentType": "application/json",
+        },
+        body: JSON.stringify({ text: document.getElementById("user-sentence").value }) 
+    });
     const data = await res.json();
 
     const container = document.getElementById("result");
@@ -9,7 +15,11 @@ async function getGreeting() {
     document.querySelector(".vsep").classList.remove("hidden");
     container.append(domalt.newElem({
         tag: "h2",
-        content: data.greeting
+        content: data.analysis
+    }));
+    container.append(domalt.newElem({
+        tag: "p",
+        content: data.received_sentence
     }));
 }
 
@@ -27,4 +37,4 @@ function newIcon(name) {
     })
 }
 
-document.getElementById("get-greeting").addEventListener("click", getGreeting);
+document.getElementById("analyze").addEventListener("click", getFullAnalysis);
