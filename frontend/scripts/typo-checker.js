@@ -2,7 +2,6 @@ import { clearElem } from "./common.js";
 import domalt from "./domalt/domalt.js";
 
 async function getTypoCheck() {
-    console.log("hey");
     const res = await fetch("/api/typo-checker", {
         method: "POST",
         headers: {
@@ -17,11 +16,11 @@ async function getTypoCheck() {
     document.querySelector("main").classList.add("result-displayed");
     container.append(domalt.newElem({
         tag: "h2",
-        content: data.analysis
+        content: data.evaluation
     }));
     container.append(domalt.newElem({
         tag: "p",
-        content: data.received_sentence
+        content: data.correction
     }));
 }
 

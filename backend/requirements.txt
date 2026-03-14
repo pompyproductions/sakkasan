@@ -2,3 +2,5 @@ uvicorn[standard]
 pydantic
 fastapi
 python-multipart
+mistralai
+python-dotenv
